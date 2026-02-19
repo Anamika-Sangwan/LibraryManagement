@@ -1,8 +1,13 @@
 package com.anamika.librarymanagement.Model;
+import jakarta.persistence.*;
 
-
+@Entity
+@Table(name = "books")
 public class Book {
-    private int id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String title;
     private String author;
     private boolean borrowed;
@@ -16,8 +21,8 @@ public class Book {
     }
     //Setters and getters
     //For Id
-    public void setId(int id){this.id = id;}
-    public int getId(){return this.id;}
+    public void setId(Integer id){this.id = id;}
+    public Integer getId(){return this.id;}
 
     //For Author
     public String getAuthor(){return this.author;}

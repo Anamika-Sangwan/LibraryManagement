@@ -1,11 +1,11 @@
-package com.anamika.librarymanagement.DataStore;
+package com.anamika.librarymanagement.Repo;
 
 import com.anamika.librarymanagement.Model.Book;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
+/**@Repository
 public class BookStore {
 
     private final Map<Integer, Book> books = new HashMap<>();
@@ -36,3 +36,4 @@ public class BookStore {
         books.put(book.getId(), book);
     }
 }
+**/
