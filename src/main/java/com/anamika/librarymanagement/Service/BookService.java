@@ -3,7 +3,7 @@ package com.anamika.librarymanagement.Service;
 import com.anamika.librarymanagement.Repo.BookRepository;
 import com.anamika.librarymanagement.Exceptions.BookAlreadyBorrowedException;
 import com.anamika.librarymanagement.Exceptions.BookNotFoundException;
-import com.anamika.librarymanagement.Model.Book;
+import com.anamika.librarymanagement.Entity.Book;
 import com.anamika.librarymanagement.dto.BookResponse;
 import com.anamika.librarymanagement.dto.CreateBookRequest;
 import org.springframework.stereotype.Service;

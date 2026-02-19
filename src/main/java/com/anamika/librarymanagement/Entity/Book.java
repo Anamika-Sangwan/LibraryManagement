@@ -1,4 +1,4 @@
-package com.anamika.librarymanagement.Model;
+package com.anamika.librarymanagement.Entity;
 import jakarta.persistence.*;
 
 @Entity

@@ -1,14 +1,12 @@
 package com.anamika.librarymanagement.Controller;
 
-import com.anamika.librarymanagement.Exceptions.BookNotFoundException;
-import com.anamika.librarymanagement.Model.Book;
 import com.anamika.librarymanagement.Service.BookService;
 import com.anamika.librarymanagement.dto.BookResponse;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.anamika.librarymanagement.dto.CreateBookRequest;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/books")
@@ -31,7 +29,7 @@ public class BookController {
     }*/
 
     @PostMapping
-    public ResponseEntity<BookResponse> addBook(@RequestBody CreateBookRequest request) {
+    public ResponseEntity<BookResponse> addBook(@Valid @RequestBody CreateBookRequest request) {
         BookResponse savedBook = bookService.addBook(request);
         return ResponseEntity.status(201).body(savedBook);
     }
