@@ -20,7 +20,7 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    //Converts the entity into Dto
+   /** //Converts the entity into Dto
     private BookResponse toResponse(Book book) {
         BookResponse response = new BookResponse();
         response.setId(book.getId());
@@ -28,30 +28,26 @@ public class BookController {
         response.setAuthor(book.getAuthor());
         response.setBorrowed(book.isBorrowed());
         return response;
-    }
+    }*/
 
     @PostMapping
     public ResponseEntity<BookResponse> addBook(@RequestBody CreateBookRequest request) {
-        Book book = new Book(request.getTitle(),request.getAuthor());
-        Book savedBook = bookService.addBook(book);
-        return ResponseEntity.status(201).body(toResponse(savedBook));
+        BookResponse savedBook = bookService.addBook(request);
+        return ResponseEntity.status(201).body(savedBook);
     }
 
     @GetMapping
     public ResponseEntity<List<BookResponse>> getAllBooks() {
-        List<BookResponse> response = bookService.getBooks().stream().map(this::toResponse).toList();
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(bookService.getAllBooks());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<BookResponse> getBook(@PathVariable int id) {
-        Book book = bookService.getBook(id);
-        return ResponseEntity.ok(toResponse(book));
+        return ResponseEntity.ok(bookService.getBook(id));
     }
 
     @PatchMapping("/{id}/borrow")
     public ResponseEntity<BookResponse> borrowBook(@PathVariable int id) {
-        Book borrowedBook = bookService.borrowBook(id);
-        return ResponseEntity.ok(toResponse(borrowedBook));
+        return ResponseEntity.ok(bookService.borrowBook(id));
     }
 }
